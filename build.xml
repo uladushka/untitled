@@ -24,7 +24,7 @@
     <target name="jar" depends="compile">
         <jar destfile="${dist.dir}/${jar.name}" basedir="${build.dir}">
             <manifest>
-                <attribute name="Main-Class" value="com.example.Main"/>
+                <attribute name="Main" value="org.example.Main"/>
             </manifest>
         </jar>
     </target>
