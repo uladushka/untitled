@@ -1,22 +1,24 @@
 pipeline {
     agent any
     stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/uladushka/untitled.git'
+            }
+        }
         stage('Build') {
             steps {
-                echo 'Building...'
-                sh 'ant compile'
+                bat 'mvn clean install' // или другой инструмент сборки
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing...'
-                sh 'ant test'
+                bat 'mvn test'
             }
         }
         stage('Run') {
             steps {
-                echo 'Running application...'
-                sh 'ant run'
+                bat 'java -jar target/your-app.jar' // замените на ваш .jar файл
             }
         }
     }
